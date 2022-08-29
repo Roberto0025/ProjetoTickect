@@ -39,7 +39,7 @@
             this.btnConsultas = new System.Windows.Forms.Button();
             this.GrupoBusca = new System.Windows.Forms.GroupBox();
             this.btnSelecionar = new System.Windows.Forms.Button();
-            this.dataGridViewFuncionario = new System.Windows.Forms.DataGridView();
+            this.dataGridViewFuncionarioTickect = new System.Windows.Forms.DataGridView();
             this.textBuscaPorNome = new System.Windows.Forms.TextBox();
             this.textAtivo = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -48,14 +48,16 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.textNome = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textNumero = new System.Windows.Forms.TextBox();
             this.textId = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textNumero = new System.Windows.Forms.TextBox();
+            this.dataGridViewTickect = new System.Windows.Forms.DataGridView();
             this.GrupoFuncionario.SuspendLayout();
             this.GrupoBusca.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuncionario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuncionarioTickect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTickect)).BeginInit();
             this.SuspendLayout();
             // 
             // GrupoFuncionario
@@ -98,6 +100,7 @@
             this.btnEditar.TabIndex = 45;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // textDataEntrega
             // 
@@ -138,7 +141,7 @@
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(365, 341);
+            this.btnSair.Location = new System.Drawing.Point(365, 391);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(131, 29);
             this.btnSair.TabIndex = 40;
@@ -149,7 +152,7 @@
             // btnFuncionario
             // 
             this.btnFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuncionario.Location = new System.Drawing.Point(61, 341);
+            this.btnFuncionario.Location = new System.Drawing.Point(61, 391);
             this.btnFuncionario.Name = "btnFuncionario";
             this.btnFuncionario.Size = new System.Drawing.Size(161, 29);
             this.btnFuncionario.TabIndex = 39;
@@ -160,7 +163,7 @@
             // btnConsultas
             // 
             this.btnConsultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultas.Location = new System.Drawing.Point(228, 341);
+            this.btnConsultas.Location = new System.Drawing.Point(228, 391);
             this.btnConsultas.Name = "btnConsultas";
             this.btnConsultas.Size = new System.Drawing.Size(131, 29);
             this.btnConsultas.TabIndex = 38;
@@ -171,11 +174,11 @@
             // GrupoBusca
             // 
             this.GrupoBusca.Controls.Add(this.btnSelecionar);
-            this.GrupoBusca.Controls.Add(this.dataGridViewFuncionario);
+            this.GrupoBusca.Controls.Add(this.dataGridViewFuncionarioTickect);
             this.GrupoBusca.Controls.Add(this.textBuscaPorNome);
             this.GrupoBusca.Location = new System.Drawing.Point(6, 211);
             this.GrupoBusca.Name = "GrupoBusca";
-            this.GrupoBusca.Size = new System.Drawing.Size(489, 124);
+            this.GrupoBusca.Size = new System.Drawing.Size(489, 174);
             this.GrupoBusca.TabIndex = 37;
             this.GrupoBusca.TabStop = false;
             this.GrupoBusca.Text = "BUSCA DE FUNCIONARIO POR NOME";
@@ -183,20 +186,21 @@
             // btnSelecionar
             // 
             this.btnSelecionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelecionar.Location = new System.Drawing.Point(343, 16);
+            this.btnSelecionar.Location = new System.Drawing.Point(352, 16);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(131, 29);
             this.btnSelecionar.TabIndex = 4;
             this.btnSelecionar.Text = "SELECIONAR";
             this.btnSelecionar.UseVisualStyleBackColor = true;
+            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
             // 
-            // dataGridViewFuncionario
+            // dataGridViewFuncionarioTickect
             // 
-            this.dataGridViewFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFuncionario.Location = new System.Drawing.Point(11, 51);
-            this.dataGridViewFuncionario.Name = "dataGridViewFuncionario";
-            this.dataGridViewFuncionario.Size = new System.Drawing.Size(463, 67);
-            this.dataGridViewFuncionario.TabIndex = 2;
+            this.dataGridViewFuncionarioTickect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFuncionarioTickect.Location = new System.Drawing.Point(11, 51);
+            this.dataGridViewFuncionarioTickect.Name = "dataGridViewFuncionarioTickect";
+            this.dataGridViewFuncionarioTickect.Size = new System.Drawing.Size(472, 117);
+            this.dataGridViewFuncionarioTickect.TabIndex = 2;
             // 
             // textBuscaPorNome
             // 
@@ -205,6 +209,7 @@
             this.textBuscaPorNome.Name = "textBuscaPorNome";
             this.textBuscaPorNome.Size = new System.Drawing.Size(199, 26);
             this.textBuscaPorNome.TabIndex = 5;
+            this.textBuscaPorNome.TextChanged += new System.EventHandler(this.textBuscaPorNome_TextChanged);
             // 
             // textAtivo
             // 
@@ -255,6 +260,7 @@
             this.btnSalvar.TabIndex = 2;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // label1
             // 
@@ -275,16 +281,6 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "ID";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(69, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 16);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Nº";
-            // 
             // textNome
             // 
             this.textNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -303,14 +299,6 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "NOME";
             // 
-            // textNumero
-            // 
-            this.textNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNumero.Location = new System.Drawing.Point(97, 64);
-            this.textNumero.Name = "textNumero";
-            this.textNumero.Size = new System.Drawing.Size(128, 26);
-            this.textNumero.TabIndex = 6;
-            // 
             // textId
             // 
             this.textId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -319,11 +307,39 @@
             this.textId.Size = new System.Drawing.Size(80, 26);
             this.textId.TabIndex = 11;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(69, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(22, 16);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Nº";
+            // 
+            // textNumero
+            // 
+            this.textNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNumero.Location = new System.Drawing.Point(97, 64);
+            this.textNumero.Name = "textNumero";
+            this.textNumero.Size = new System.Drawing.Size(128, 26);
+            this.textNumero.TabIndex = 6;
+            // 
+            // dataGridViewTickect
+            // 
+            this.dataGridViewTickect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTickect.Location = new System.Drawing.Point(520, 12);
+            this.dataGridViewTickect.Name = "dataGridViewTickect";
+            this.dataGridViewTickect.Size = new System.Drawing.Size(268, 426);
+            this.dataGridViewTickect.TabIndex = 19;
+            this.dataGridViewTickect.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewTickect_CellMouseDoubleClick);
+            // 
             // FormTickect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridViewTickect);
             this.Controls.Add(this.GrupoFuncionario);
             this.Name = "FormTickect";
             this.Text = "Form Tickect";
@@ -331,7 +347,8 @@
             this.GrupoFuncionario.PerformLayout();
             this.GrupoBusca.ResumeLayout(false);
             this.GrupoBusca.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuncionario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuncionarioTickect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTickect)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -344,7 +361,7 @@
         private System.Windows.Forms.Button btnConsultas;
         private System.Windows.Forms.GroupBox GrupoBusca;
         private System.Windows.Forms.Button btnSelecionar;
-        private System.Windows.Forms.DataGridView dataGridViewFuncionario;
+        private System.Windows.Forms.DataGridView dataGridViewFuncionarioTickect;
         private System.Windows.Forms.TextBox textBuscaPorNome;
         private System.Windows.Forms.MaskedTextBox textAtivo;
         private System.Windows.Forms.Label label9;
@@ -353,15 +370,16 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textNome;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textNumero;
         private System.Windows.Forms.TextBox textId;
         private System.Windows.Forms.TextBox textDataEntrega;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textQtde;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textNumero;
+        private System.Windows.Forms.DataGridView dataGridViewTickect;
     }
 }

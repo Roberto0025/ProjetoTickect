@@ -16,7 +16,7 @@ namespace ProjetoTickect.Entidades
 
         [Required(ErrorMessage = "A data deve ser informada")]
         [Display(Name = "Data de entrega")]
-        public string dtEntrega { get; set; }
+        public DateTime dtEntrega { get; set; }
 
         [Required]
         [Display(Name = "Número do tickect")]

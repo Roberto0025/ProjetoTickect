@@ -49,7 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textDtAlteracao = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textDtCriacao = new System.Windows.Forms.TextBox();
+            this.textDtInclusao = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@
             this.GrupoFuncionario.Controls.Add(this.label3);
             this.GrupoFuncionario.Controls.Add(this.textDtAlteracao);
             this.GrupoFuncionario.Controls.Add(this.label4);
-            this.GrupoFuncionario.Controls.Add(this.textDtCriacao);
+            this.GrupoFuncionario.Controls.Add(this.textDtInclusao);
             this.GrupoFuncionario.Controls.Add(this.label5);
             this.GrupoFuncionario.Controls.Add(this.label6);
             this.GrupoFuncionario.Controls.Add(this.label7);
@@ -102,11 +102,12 @@
             this.btnEditar.TabIndex = 41;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(365, 341);
+            this.btnSair.Location = new System.Drawing.Point(366, 391);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(131, 29);
             this.btnSair.TabIndex = 40;
@@ -117,7 +118,7 @@
             // btnTickect
             // 
             this.btnTickect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTickect.Location = new System.Drawing.Point(91, 341);
+            this.btnTickect.Location = new System.Drawing.Point(92, 391);
             this.btnTickect.Name = "btnTickect";
             this.btnTickect.Size = new System.Drawing.Size(131, 29);
             this.btnTickect.TabIndex = 39;
@@ -128,7 +129,7 @@
             // btnConsultas
             // 
             this.btnConsultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultas.Location = new System.Drawing.Point(228, 341);
+            this.btnConsultas.Location = new System.Drawing.Point(229, 391);
             this.btnConsultas.Name = "btnConsultas";
             this.btnConsultas.Size = new System.Drawing.Size(131, 29);
             this.btnConsultas.TabIndex = 38;
@@ -143,7 +144,7 @@
             this.GrupoBusca.Controls.Add(this.textBuscaPorNome);
             this.GrupoBusca.Location = new System.Drawing.Point(6, 211);
             this.GrupoBusca.Name = "GrupoBusca";
-            this.GrupoBusca.Size = new System.Drawing.Size(489, 124);
+            this.GrupoBusca.Size = new System.Drawing.Size(489, 174);
             this.GrupoBusca.TabIndex = 37;
             this.GrupoBusca.TabStop = false;
             this.GrupoBusca.Text = "BUSCA DE FUNCIONARIO POR NOME";
@@ -151,20 +152,22 @@
             // btnSelecionar
             // 
             this.btnSelecionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelecionar.Location = new System.Drawing.Point(343, 16);
+            this.btnSelecionar.Location = new System.Drawing.Point(352, 16);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(131, 29);
             this.btnSelecionar.TabIndex = 4;
             this.btnSelecionar.Text = "SELECIONAR";
             this.btnSelecionar.UseVisualStyleBackColor = true;
+            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
             // 
             // dataGridViewFuncionario
             // 
             this.dataGridViewFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFuncionario.Location = new System.Drawing.Point(11, 51);
             this.dataGridViewFuncionario.Name = "dataGridViewFuncionario";
-            this.dataGridViewFuncionario.Size = new System.Drawing.Size(463, 67);
+            this.dataGridViewFuncionario.Size = new System.Drawing.Size(472, 117);
             this.dataGridViewFuncionario.TabIndex = 2;
+            this.dataGridViewFuncionario.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewFuncionario_CellMouseDoubleClick);
             // 
             // textBuscaPorNome
             // 
@@ -173,6 +176,7 @@
             this.textBuscaPorNome.Name = "textBuscaPorNome";
             this.textBuscaPorNome.Size = new System.Drawing.Size(199, 26);
             this.textBuscaPorNome.TabIndex = 5;
+            this.textBuscaPorNome.TextChanged += new System.EventHandler(this.textBuscaPorNome_TextChanged);
             // 
             // textAtivo
             // 
@@ -219,7 +223,7 @@
             // 
             this.textFone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textFone.Location = new System.Drawing.Point(352, 96);
-            this.textFone.Mask = "(45) 00000-0000";
+            this.textFone.Mask = "(00) 00000-0000";
             this.textFone.Name = "textFone";
             this.textFone.Size = new System.Drawing.Size(143, 26);
             this.textFone.TabIndex = 8;
@@ -291,13 +295,13 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "CPF";
             // 
-            // textDtCriacao
+            // textDtInclusao
             // 
-            this.textDtCriacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDtCriacao.Location = new System.Drawing.Point(97, 132);
-            this.textDtCriacao.Name = "textDtCriacao";
-            this.textDtCriacao.Size = new System.Drawing.Size(144, 22);
-            this.textDtCriacao.TabIndex = 9;
+            this.textDtInclusao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDtInclusao.Location = new System.Drawing.Point(97, 132);
+            this.textDtInclusao.Name = "textDtInclusao";
+            this.textDtInclusao.Size = new System.Drawing.Size(144, 22);
+            this.textDtInclusao.TabIndex = 9;
             // 
             // label5
             // 
@@ -381,7 +385,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textDtAlteracao;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textDtCriacao;
+        private System.Windows.Forms.TextBox textDtInclusao;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
