@@ -48,11 +48,11 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.textNome = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textId = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.textNumero = new System.Windows.Forms.TextBox();
+            this.textId = new System.Windows.Forms.TextBox();
             this.dataGridViewTickect = new System.Windows.Forms.DataGridView();
             this.GrupoFuncionario.SuspendLayout();
             this.GrupoBusca.SuspendLayout();
@@ -239,6 +239,7 @@
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnNovo
             // 
@@ -281,6 +282,16 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "ID";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(69, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(22, 16);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Nº";
+            // 
             // textNome
             // 
             this.textNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -299,24 +310,6 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "NOME";
             // 
-            // textId
-            // 
-            this.textId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textId.Location = new System.Drawing.Point(97, 32);
-            this.textId.Name = "textId";
-            this.textId.Size = new System.Drawing.Size(80, 26);
-            this.textId.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(69, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 16);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Nº";
-            // 
             // textNumero
             // 
             this.textNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -324,6 +317,14 @@
             this.textNumero.Name = "textNumero";
             this.textNumero.Size = new System.Drawing.Size(128, 26);
             this.textNumero.TabIndex = 6;
+            // 
+            // textId
+            // 
+            this.textId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textId.Location = new System.Drawing.Point(97, 32);
+            this.textId.Name = "textId";
+            this.textId.Size = new System.Drawing.Size(80, 26);
+            this.textId.TabIndex = 11;
             // 
             // dataGridViewTickect
             // 

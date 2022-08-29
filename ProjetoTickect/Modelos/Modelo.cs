@@ -99,15 +99,33 @@ namespace ProjetoTickect.Modelos
         {
             Context context = new Context();
             List<DTOTickect> lista = (from p in context.tickects
+                                      join f in context.funcionarios
+                                      on p.funcionario.id equals f.id
                                       select new DTOTickect
                                       {
                                           id = p.id,
                                           numerorTickect = p.numerorTickect,
-                                          funcionario = p.funcionario,
-                                          dtEntrega = p.dtEntrega
+                                          nomeFuncionario = f.nome,
+                                          dtEntrega = p.dtEntrega,
                                           
                                       }).ToList();
             return lista;
+        }
+
+        public List<DTOTickect> buscarTickectPorData(DateTime inicial, DateTime final)
+        {
+            Context context = new Context();
+
+            List<DTOTickect> list = (from t in context.tickects
+                                     select new DTOTickect
+                                     {
+                                         id = t.id,
+                                         numerorTickect = t.numerorTickect,
+                                         dtEntrega = t.dtEntrega,
+                                         funcionario = t.funcionario
+                                     }).ToList();
+            
+            return list;
         }
     }
 }

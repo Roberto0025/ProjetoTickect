@@ -171,5 +171,11 @@ namespace ProjetoTickect
             //textNome.Text = tickect.funcionario.ToString();
 
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limparText();
+            desabilitarText();
+        }
     }
 }

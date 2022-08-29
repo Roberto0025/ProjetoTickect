@@ -10,6 +10,7 @@ namespace ProjetoTickect.Entidades
     public class DTOTickect
     {
         public int id { get; set; }
+        public string nomeFuncionario { get; set; }
         public DateTime dtEntrega { get; set; }
         public int numerorTickect { get; set; }
         public Funcionario funcionario { get; set; }
