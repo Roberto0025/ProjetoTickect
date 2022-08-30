@@ -20,10 +20,13 @@ namespace ProjetoTickect.Entidades
 
         [Required]
         [Display(Name = "Número do tickect")]
-        public int numerorTickect { get; set; }
+        public string numerorTickect { get; set; }
 
         [Required]
         [Display(Name = "Funcionario")]
         public Funcionario funcionario { get; set; }
+
+        [Required]
+        public String ativoInativo { get; set; }
     }
 }

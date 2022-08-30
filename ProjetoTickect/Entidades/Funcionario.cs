@@ -33,6 +33,7 @@ namespace ProjetoTickect.Entidades
         [Display(Name = "Data de Alteração")]
         public DateTime dtAlteracao { get; set; }
 
-        //public List<Tickect> ListTickect { get; set; }
+        [Required]
+        public string AtivoInativo { get; set; }
     }
 }

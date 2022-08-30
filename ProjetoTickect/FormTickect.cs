@@ -42,24 +42,46 @@ namespace ProjetoTickect
         {
             limparText();
             habilitarText();
-            int id = (int)dataGridViewFuncionarioTickect.CurrentRow.Cells[0].Value;
-            Modelo model = new Modelo();
-            Funcionario func = model.buscarFuncionario(id);
+            if(dataGridViewFuncionarioTickect.RowCount < 1)
+            {
+                MessageBox.Show("Necessário cadastrar funcionário primeiro");
+                textQtde.Enabled = false;
+                return;            
+            }
+            else
+            {
+                int id = (int)dataGridViewFuncionarioTickect.CurrentRow.Cells[0].Value;
+                Modelo model = new Modelo();
+                Funcionario func = model.buscarFuncionario(id);
 
-            textNome.Text = func.nome.ToString();
-            geradorNumeroTickect();
+                textAtivo.Text = "A";
+                textNome.Text = func.nome.ToString();
+                geradorNumeroTickect();
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             limparText();
-            int id = (int)dataGridViewFuncionarioTickect.CurrentRow.Cells[0].Value;
-            Modelo model = new Modelo();
-            Funcionario func = model.buscarFuncionario(id);
-
-            textNome.Text = func.nome.ToString();
-            habilitarText();
-            textQtde.Focus();
+            if(dataGridViewFuncionarioTickect.RowCount < 1)
+            {
+                MessageBox.Show("Necessário cadastrar tickect antes de editar");
+                return;
+            }
+            else
+            {
+                int id = (int)dataGridViewTickect.CurrentRow.Cells[0].Value;
+                //int idFunc = (int)dataGridViewTickect.CurrentRow.Cells[4].Value;
+                Modelo model = new Modelo();
+                Tickect tickect = model.buscarTickect(id);
+                //Funcionario func = model.buscarFuncionario(idFunc);
+                textAtivo.Text = tickect.ativoInativo.ToString();
+                textAtivo.Enabled = true;
+                textNome.Text = tickect.funcionario.nome.ToString();
+                textNumero.Text = tickect.numerorTickect.ToString();
+                habilitarText();
+                textQtde.Focus();
+            }
         }
 
         private void textBuscaPorNome_TextChanged(object sender, EventArgs e)
@@ -96,7 +118,8 @@ namespace ProjetoTickect
             }
             else
             {
-                tickect.numerorTickect = int.Parse(textNumero.Text);
+                tickect.ativoInativo = textAtivo.Text;
+                tickect.numerorTickect = textNumero.Text;
                 tickect.funcionario = modelo.buscarFuncionario(id);
                 tickect.dtEntrega = DateTime.Parse(textDataEntrega.Text);
             }
@@ -113,9 +136,7 @@ namespace ProjetoTickect
                 modelo.AlterarTickect(tickect);
                 limparText();
                 carregarGrid();
-                //desabilitaText();
             }
-
         }
         private void carregarGrid()
         {
@@ -162,14 +183,21 @@ namespace ProjetoTickect
         private void dataGridViewTickect_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             limparText();
-            int id = (int)dataGridViewTickect.CurrentRow.Cells[0].Value;
-            Modelo model = new Modelo();
-            Tickect tickect = model.buscarTickect(id);
-            textId.Text = tickect.id.ToString();
-            textNumero.Text = tickect.numerorTickect.ToString();
-            textDataEntrega.Text = tickect.dtEntrega.ToString();
-            //textNome.Text = tickect.funcionario.ToString();
-
+            if(dataGridViewTickect.RowCount < 1)
+            {
+                MessageBox.Show("Nenhum tickect foi selecionado");
+                return;
+            }
+            else
+            {
+                int id = (int)dataGridViewTickect.CurrentRow.Cells[0].Value;
+                Modelo model = new Modelo();
+                Tickect tickect = model.buscarTickect(id);
+                textId.Text = tickect.id.ToString();
+                textNumero.Text = tickect.numerorTickect.ToString();
+                textDataEntrega.Text = tickect.dtEntrega.ToString();
+                //textNome.Text = model.buscarFuncionario((int)dataGridViewTickect.CurrentRow.Cells[4].Value).nome.ToString();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -12,7 +12,8 @@ namespace ProjetoTickect.Entidades
         public int id { get; set; }
         public string nomeFuncionario { get; set; }
         public DateTime dtEntrega { get; set; }
-        public int numerorTickect { get; set; }
+        public string numerorTickect { get; set; }
         public Funcionario funcionario { get; set; }
+        public String ativoInativo { get; set; }
     }
 }

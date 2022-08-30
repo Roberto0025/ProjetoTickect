@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.GrupoFuncionario = new System.Windows.Forms.GroupBox();
+            this.textAtivo = new System.Windows.Forms.ComboBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.textDataEntrega = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.dataGridViewFuncionarioTickect = new System.Windows.Forms.DataGridView();
             this.textBuscaPorNome = new System.Windows.Forms.TextBox();
-            this.textAtivo = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
@@ -62,6 +62,7 @@
             // 
             // GrupoFuncionario
             // 
+            this.GrupoFuncionario.Controls.Add(this.textAtivo);
             this.GrupoFuncionario.Controls.Add(this.btnEditar);
             this.GrupoFuncionario.Controls.Add(this.textDataEntrega);
             this.GrupoFuncionario.Controls.Add(this.label5);
@@ -71,7 +72,6 @@
             this.GrupoFuncionario.Controls.Add(this.btnFuncionario);
             this.GrupoFuncionario.Controls.Add(this.btnConsultas);
             this.GrupoFuncionario.Controls.Add(this.GrupoBusca);
-            this.GrupoFuncionario.Controls.Add(this.textAtivo);
             this.GrupoFuncionario.Controls.Add(this.label9);
             this.GrupoFuncionario.Controls.Add(this.btnCancelar);
             this.GrupoFuncionario.Controls.Add(this.btnNovo);
@@ -90,6 +90,18 @@
             this.GrupoFuncionario.TabIndex = 18;
             this.GrupoFuncionario.TabStop = false;
             this.GrupoFuncionario.Text = "CONTROLE DE TICKECT";
+            // 
+            // textAtivo
+            // 
+            this.textAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textAtivo.FormattingEnabled = true;
+            this.textAtivo.Items.AddRange(new object[] {
+            "A",
+            "I"});
+            this.textAtivo.Location = new System.Drawing.Point(454, 26);
+            this.textAtivo.Name = "textAtivo";
+            this.textAtivo.Size = new System.Drawing.Size(41, 28);
+            this.textAtivo.TabIndex = 46;
             // 
             // btnEditar
             // 
@@ -211,20 +223,11 @@
             this.textBuscaPorNome.TabIndex = 5;
             this.textBuscaPorNome.TextChanged += new System.EventHandler(this.textBuscaPorNome_TextChanged);
             // 
-            // textAtivo
-            // 
-            this.textAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textAtivo.Location = new System.Drawing.Point(468, 32);
-            this.textAtivo.Mask = "A";
-            this.textAtivo.Name = "textAtivo";
-            this.textAtivo.Size = new System.Drawing.Size(27, 26);
-            this.textAtivo.TabIndex = 5;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(352, 38);
+            this.label9.Location = new System.Drawing.Point(337, 38);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(110, 16);
             this.label9.TabIndex = 36;
@@ -343,6 +346,7 @@
             this.Controls.Add(this.dataGridViewTickect);
             this.Controls.Add(this.GrupoFuncionario);
             this.Name = "FormTickect";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Tickect";
             this.GrupoFuncionario.ResumeLayout(false);
             this.GrupoFuncionario.PerformLayout();
@@ -364,7 +368,6 @@
         private System.Windows.Forms.Button btnSelecionar;
         private System.Windows.Forms.DataGridView dataGridViewFuncionarioTickect;
         private System.Windows.Forms.TextBox textBuscaPorNome;
-        private System.Windows.Forms.MaskedTextBox textAtivo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnNovo;
@@ -382,5 +385,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textNumero;
         private System.Windows.Forms.DataGridView dataGridViewTickect;
+        private System.Windows.Forms.ComboBox textAtivo;
     }
 }

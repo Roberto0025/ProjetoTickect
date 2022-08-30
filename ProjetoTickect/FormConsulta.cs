@@ -21,13 +21,30 @@ namespace ProjetoTickect
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            DateTime inicial = DateTime.Parse(textFinal.Text);
+            DateTime inicial = DateTime.Parse(textInicial.Text);
             DateTime final = DateTime.Parse(textFinal.Text);
 
             Modelo model = new Modelo();
             
             List<DTOTickect> list =  model.buscarTickectPorData(inicial, final);
             dataGridViewResultados.DataSource = list;
+        }
+
+        private void btnConsultas_Click(object sender, EventArgs e)
+        {
+            FormTickect formTickect = new FormTickect();
+            formTickect.ShowDialog();
+        }
+
+        private void btnFuncionario_Click(object sender, EventArgs e)
+        {
+            FormFuncionario formFuncionario = new FormFuncionario();
+            formFuncionario.ShowDialog();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

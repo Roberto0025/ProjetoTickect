@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace ProjetoTickect.Modelos
@@ -24,8 +26,9 @@ namespace ProjetoTickect.Modelos
             funcionario.nome = func.nome;
             funcionario.cpf = func.cpf;
             funcionario.fone = func.fone;
-            funcionario.dtInclusao = funcionario.dtInclusao;
-            funcionario.dtAlteracao = funcionario.dtAlteracao;
+            funcionario.dtInclusao = func.dtInclusao;
+            funcionario.dtAlteracao = func.dtAlteracao;
+            funcionario.AtivoInativo = func.AtivoInativo;
             contex.SaveChanges();
         }
 
@@ -48,7 +51,8 @@ namespace ProjetoTickect.Modelos
                                                      cpf = p.cpf,
                                                      fone = p.fone,
                                                      dtInclusao = p.dtInclusao,
-                                                     dtAlteracao = p.dtAlteracao
+                                                     dtAlteracao = p.dtAlteracao,
+                                                     AtivoInativo = p.AtivoInativo
                                                  }).ToList();
             return funcionarios;
         }
@@ -65,7 +69,8 @@ namespace ProjetoTickect.Modelos
                                               cpf = p.cpf,
                                               fone = p.fone,
                                               dtInclusao = p.dtInclusao,
-                                              dtAlteracao = p.dtAlteracao
+                                              dtAlteracao = p.dtAlteracao,
+                                              AtivoInativo = p.AtivoInativo
                                           }).ToList();
             return lista;
         }
@@ -106,25 +111,27 @@ namespace ProjetoTickect.Modelos
                                           id = p.id,
                                           numerorTickect = p.numerorTickect,
                                           nomeFuncionario = f.nome,
+                                          ativoInativo = p.ativoInativo,
                                           dtEntrega = p.dtEntrega,
-                                          
                                       }).ToList();
             return lista;
         }
-
         public List<DTOTickect> buscarTickectPorData(DateTime inicial, DateTime final)
         {
             Context context = new Context();
 
             List<DTOTickect> list = (from t in context.tickects
+                                     where((DateTime)t.dtEntrega >= (DateTime)inicial)
+                                     where ((DateTime)t.dtEntrega <= (DateTime)final)
                                      select new DTOTickect
                                      {
                                          id = t.id,
-                                         numerorTickect = t.numerorTickect,
+                                         ativoInativo = t.ativoInativo,
                                          dtEntrega = t.dtEntrega,
-                                         funcionario = t.funcionario
+                                         funcionario = t.funcionario,
+                                         numerorTickect = t.numerorTickect
                                      }).ToList();
-            
+                                                                        
             return list;
         }
     }

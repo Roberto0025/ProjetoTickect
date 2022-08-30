@@ -16,6 +16,6 @@ namespace ProjetoTickect.Entidades
         public string fone { get; set; }
         public DateTime dtInclusao { get; set; }
         public DateTime dtAlteracao { get; set; }
-        //public List<Tickect> ListTickect { get; set; }
+        public string AtivoInativo { get; set; }
     }
 }

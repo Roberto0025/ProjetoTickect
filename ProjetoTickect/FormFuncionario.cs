@@ -6,9 +6,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace ProjetoTickect
 {
@@ -42,6 +45,7 @@ namespace ProjetoTickect
         {
             limparText();
             habilitarText();
+            textAtivo.Text = "A";
             textDtInclusao.Text = DateTime.Now.ToString();
             textDtAlteracao.Text = DateTime.Now.ToString();
         }
@@ -49,18 +53,28 @@ namespace ProjetoTickect
         private void btnEditar_Click(object sender, EventArgs e)
         {
             limparText();
-            int id = (int)dataGridViewFuncionario.CurrentRow.Cells[0].Value;
-            Modelo model = new Modelo();
-            Funcionario func = model.buscarFuncionario(id);
+            if(dataGridViewFuncionario.RowCount < 1)
+            {
+                MessageBox.Show("Nenhum funcionário foi selecionado");
+                return;
+            }
+            else
+            {
+                int id = (int)dataGridViewFuncionario.CurrentRow.Cells[0].Value;
+                Modelo model = new Modelo();
+                Funcionario func = model.buscarFuncionario(id);
 
-            textId.Text = func.id.ToString();
-            textNome.Text = func.nome.ToString();
-            textCPF.Text = func.cpf.ToString();
-            textFone.Text = func.fone.ToString();
-            textDtInclusao.Text = func.dtInclusao.ToString();
-            textDtAlteracao.Text = DateTime.Now.ToString();
-            habilitarText();
-            textNome.Focus();
+                textAtivo.Text = func.AtivoInativo.ToString();
+                textId.Text = func.id.ToString();
+                textNome.Text = func.nome.ToString();
+                textCPF.Text = func.cpf.ToString();
+                textFone.Text = func.fone.ToString();
+                textDtInclusao.Text = func.dtInclusao.ToString();
+                textDtAlteracao.Text = DateTime.Now.ToString();
+                habilitarText();
+                textAtivo.Enabled = true;
+                textNome.Focus();
+            }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -68,15 +82,21 @@ namespace ProjetoTickect
             Modelo modelo = new Modelo();
             Funcionario funcionario = new Funcionario();
 
-            if(textNome.Text.Trim() == String.Empty ||
-                textCPF.Text.Trim() == String.Empty)
+            if (textNome.Text.Trim() == String.Empty)
             {
-                MessageBox.Show("Campos Nome e Cpf obrigatório!");
+                MessageBox.Show("Campos Nome obrigatório!");
                 textNome.Focus();
+                return;
+            }
+            if(textCPF.Text.Trim() == String.Empty || textCPF.Text.Length != 11)
+            {
+                MessageBox.Show("Campos Cpf obrigatório!");
+                textCPF.Focus();
                 return;
             }
             else
             {
+                funcionario.AtivoInativo = textAtivo.Text;
                 funcionario.nome = textNome.Text;
                 funcionario.cpf = textCPF.Text;
                 funcionario.fone = textFone.Text;

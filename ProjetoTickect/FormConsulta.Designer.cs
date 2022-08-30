@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.GrupoFuncionario = new System.Windows.Forms.GroupBox();
-            this.textInicial = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnFuncionario = new System.Windows.Forms.Button();
-            this.btnConsultas = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textFinal = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewResultados = new System.Windows.Forms.DataGridView();
+            this.btnConsultas = new System.Windows.Forms.Button();
+            this.textInicial = new System.Windows.Forms.MaskedTextBox();
+            this.textFinal = new System.Windows.Forms.MaskedTextBox();
             this.GrupoFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultados)).BeginInit();
             this.SuspendLayout();
             // 
             // GrupoFuncionario
             // 
-            this.GrupoFuncionario.Controls.Add(this.dataGridViewResultados);
             this.GrupoFuncionario.Controls.Add(this.textFinal);
-            this.GrupoFuncionario.Controls.Add(this.label2);
             this.GrupoFuncionario.Controls.Add(this.textInicial);
+            this.GrupoFuncionario.Controls.Add(this.dataGridViewResultados);
+            this.GrupoFuncionario.Controls.Add(this.label2);
             this.GrupoFuncionario.Controls.Add(this.label5);
             this.GrupoFuncionario.Controls.Add(this.btnSair);
             this.GrupoFuncionario.Controls.Add(this.btnFuncionario);
@@ -63,13 +63,15 @@
             this.GrupoFuncionario.TabStop = false;
             this.GrupoFuncionario.Text = "CONSULTAS POR DATA";
             // 
-            // textInicial
+            // label2
             // 
-            this.textInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textInicial.Location = new System.Drawing.Point(97, 66);
-            this.textInicial.Name = "textInicial";
-            this.textInicial.Size = new System.Drawing.Size(155, 22);
-            this.textInicial.TabIndex = 43;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(331, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 16);
+            this.label2.TabIndex = 47;
+            this.label2.Text = "DATA FINAL";
             // 
             // label5
             // 
@@ -90,6 +92,7 @@
             this.btnSair.TabIndex = 40;
             this.btnSair.Text = "SAIR";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnFuncionario
             // 
@@ -100,16 +103,7 @@
             this.btnFuncionario.TabIndex = 39;
             this.btnFuncionario.Text = "FUNCAIONÁRIO";
             this.btnFuncionario.UseVisualStyleBackColor = true;
-            // 
-            // btnConsultas
-            // 
-            this.btnConsultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultas.Location = new System.Drawing.Point(221, 391);
-            this.btnConsultas.Name = "btnConsultas";
-            this.btnConsultas.Size = new System.Drawing.Size(131, 29);
-            this.btnConsultas.TabIndex = 38;
-            this.btnConsultas.Text = "CONSULTAS";
-            this.btnConsultas.UseVisualStyleBackColor = true;
+            this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
             // 
             // btnBuscar
             // 
@@ -131,24 +125,6 @@
             this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 16;
             // 
-            // textFinal
-            // 
-            this.textFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFinal.Location = new System.Drawing.Point(334, 66);
-            this.textFinal.Name = "textFinal";
-            this.textFinal.Size = new System.Drawing.Size(155, 22);
-            this.textFinal.TabIndex = 46;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(331, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 16);
-            this.label2.TabIndex = 47;
-            this.label2.Text = "DATA FINAL";
-            // 
             // dataGridViewResultados
             // 
             this.dataGridViewResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -157,6 +133,35 @@
             this.dataGridViewResultados.Size = new System.Drawing.Size(472, 230);
             this.dataGridViewResultados.TabIndex = 48;
             // 
+            // btnConsultas
+            // 
+            this.btnConsultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultas.Location = new System.Drawing.Point(221, 391);
+            this.btnConsultas.Name = "btnConsultas";
+            this.btnConsultas.Size = new System.Drawing.Size(131, 29);
+            this.btnConsultas.TabIndex = 38;
+            this.btnConsultas.Text = "TICKECT";
+            this.btnConsultas.UseVisualStyleBackColor = true;
+            this.btnConsultas.Click += new System.EventHandler(this.btnConsultas_Click);
+            // 
+            // textInicial
+            // 
+            this.textInicial.Location = new System.Drawing.Point(97, 66);
+            this.textInicial.Mask = "00/00/0000";
+            this.textInicial.Name = "textInicial";
+            this.textInicial.Size = new System.Drawing.Size(155, 22);
+            this.textInicial.TabIndex = 49;
+            this.textInicial.ValidatingType = typeof(System.DateTime);
+            // 
+            // textFinal
+            // 
+            this.textFinal.Location = new System.Drawing.Point(332, 66);
+            this.textFinal.Mask = "00/00/0000";
+            this.textFinal.Name = "textFinal";
+            this.textFinal.Size = new System.Drawing.Size(155, 22);
+            this.textFinal.TabIndex = 50;
+            this.textFinal.ValidatingType = typeof(System.DateTime);
+            // 
             // FormConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +169,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.GrupoFuncionario);
             this.Name = "FormConsulta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form Consultas";
             this.GrupoFuncionario.ResumeLayout(false);
             this.GrupoFuncionario.PerformLayout();
@@ -175,15 +181,15 @@
         #endregion
 
         private System.Windows.Forms.GroupBox GrupoFuncionario;
-        private System.Windows.Forms.DataGridView dataGridViewResultados;
-        private System.Windows.Forms.TextBox textFinal;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textInicial;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnFuncionario;
-        private System.Windows.Forms.Button btnConsultas;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridViewResultados;
+        private System.Windows.Forms.Button btnConsultas;
+        private System.Windows.Forms.MaskedTextBox textFinal;
+        private System.Windows.Forms.MaskedTextBox textInicial;
     }
 }
