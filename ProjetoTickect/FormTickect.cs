@@ -71,13 +71,11 @@ namespace ProjetoTickect
             else
             {
                 int id = (int)dataGridViewTickect.CurrentRow.Cells[0].Value;
-                //int idFunc = (int)dataGridViewTickect.CurrentRow.Cells[4].Value;
                 Modelo model = new Modelo();
                 Tickect tickect = model.buscarTickect(id);
-                //Funcionario func = model.buscarFuncionario(idFunc);
                 textAtivo.Text = tickect.ativoInativo.ToString();
                 textAtivo.Enabled = true;
-                textNome.Text = tickect.funcionario.nome.ToString();
+                textNome.Text = dataGridViewTickect.CurrentRow.Cells[1].Value.ToString();
                 textNumero.Text = tickect.numerorTickect.ToString();
                 habilitarText();
                 textQtde.Focus();

@@ -123,15 +123,16 @@ namespace ProjetoTickect.Modelos
             List<DTOTickect> list = (from t in context.tickects
                                      where((DateTime)t.dtEntrega >= (DateTime)inicial)
                                      where ((DateTime)t.dtEntrega <= (DateTime)final)
+                                     join f in context.funcionarios
+                                     on t.funcionario.id equals f.id
                                      select new DTOTickect
                                      {
                                          id = t.id,
                                          ativoInativo = t.ativoInativo,
                                          dtEntrega = t.dtEntrega,
-                                         funcionario = t.funcionario,
+                                         nomeFuncionario = f.nome,
                                          numerorTickect = t.numerorTickect
-                                     }).ToList();
-                                                                        
+                                     }).ToList();                                         
             return list;
         }
     }
