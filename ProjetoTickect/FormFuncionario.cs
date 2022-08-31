@@ -107,18 +107,15 @@ namespace ProjetoTickect
             if(textId.Text == String.Empty)
             {
                 modelo.SalvarFuncioanrio(funcionario);
-                limparText();
-                carregarGrid();
-                desabilitaText();
             }
             else
             {
                 funcionario.id = int.Parse(textId.Text);
                 modelo.AlterarFuncionario(funcionario);
-                limparText();
-                carregarGrid();
-                desabilitaText();
             }
+            limparText();
+            carregarGrid();
+            desabilitaText();
         }
 
         private void textBuscaPorNome_TextChanged(object sender, EventArgs e)

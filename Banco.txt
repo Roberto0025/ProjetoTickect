@@ -1,0 +1,38 @@
+Criação do banco de forma automatica por Entity Framework,
+pois segui o padrão code first.
+
+
+CREATE DATABASE "Tickets"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Portuguese_Brazil.1252'
+    LC_CTYPE = 'Portuguese_Brazil.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+CREATE TABLE IF NOT EXISTS public."Funcionario"
+(
+    id integer NOT NULL DEFAULT nextval('"Funcionario_id_seq"'::regclass),
+    nome character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    cpf text COLLATE pg_catalog."default" NOT NULL,
+    fone text COLLATE pg_catalog."default",
+    "dtInclusao" timestamp without time zone NOT NULL,
+    "dtAlteracao" timestamp without time zone NOT NULL,
+    "AtivoInativo" text COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "PK_public.Funcionario" PRIMARY KEY (id)
+)
+
+CREATE TABLE IF NOT EXISTS public."Tickect"
+(
+    id integer NOT NULL DEFAULT nextval('"Tickect_id_seq"'::regclass),
+    "dtEntrega" timestamp without time zone NOT NULL,
+    "numerorTickect" text COLLATE pg_catalog."default" NOT NULL,
+    "ativoInativo" text COLLATE pg_catalog."default" NOT NULL,
+    funcionario_id integer NOT NULL,
+    CONSTRAINT "PK_public.Tickect" PRIMARY KEY (id),
+    CONSTRAINT "FK_public.Tickect_public.Funcionario_funcionario_id" FOREIGN KEY (funcionario_id)
+        REFERENCES public."Funcionario" (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+)

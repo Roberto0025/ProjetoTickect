@@ -98,7 +98,6 @@ namespace ProjetoTickect
 
             textNome.Text = func.nome.ToString();
             textDataEntrega.Text = DateTime.Now.ToString();
-            geradorNumeroTickect();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -125,16 +124,14 @@ namespace ProjetoTickect
             if (textId.Text == String.Empty)
             {
                 modelo.SalvarTickect(tickect);
-                carregarGrid();
-                limparText();
             }
             else
             {
                 tickect.id = int.Parse(textId.Text);
                 modelo.AlterarTickect(tickect);
-                limparText();
-                carregarGrid();
             }
+            limparText();
+            carregarGrid();
         }
         private void carregarGrid()
         {
@@ -175,7 +172,7 @@ namespace ProjetoTickect
         private void geradorNumeroTickect()
         {
             Random randNum = new Random();
-            textNumero.Text = randNum.Next(10000).ToString();
+            textNumero.Text = randNum.Next(100000).ToString();
         }
 
         private void dataGridViewTickect_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -194,7 +191,6 @@ namespace ProjetoTickect
                 textId.Text = tickect.id.ToString();
                 textNumero.Text = tickect.numerorTickect.ToString();
                 textDataEntrega.Text = tickect.dtEntrega.ToString();
-                //textNome.Text = model.buscarFuncionario((int)dataGridViewTickect.CurrentRow.Cells[4].Value).nome.ToString();
             }
         }
 
